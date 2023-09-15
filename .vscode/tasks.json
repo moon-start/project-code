@@ -1,0 +1,253 @@
+{
+      // "key": "ctrl+shift+b",
+      // "key": "alt+` alt+`",   new-設置
+      "version": "2.0.0",
+      "tasks": [
+      {
+        // 任务的名称
+        "label": "笨貓任務 (預設): dev-80",
+        // 任务类别，shell代表脚本
+        "type": "shell",
+        // 任务脚本，可以是yarn/npm/git 等
+        "command": "&&",
+        // "command": "${env:windir}\\System32\\cmd.exe",
+        // "command": ">nul",
+
+        // 命令参数
+        "args": [
+                "git","config","pull.rebase","true","&&",
+                "git","config","pull.ff","true","&&",
+                // "${env:windir}\\System32\\cmd.exe","/c","del /q %VS%\\settings\\User\\*.*"  ,"&&",
+                // "${env:windir}\\System32\\cmd.exe","/c","%MDD%"  ,   //禁止刪除
+
+
+         
+                // "${env:windir}\\System32\\cmd.exe","/c","%shell%" ,
+                // "&&",
+                "%cd%\\.vscode\\笨貓任務.bat",
+                "&&","exit","/b","&&","echo","%PID%"
+                
+        ],     
+        "group": {"kind": "build","isDefault": true},
+      },
+
+
+
+      {
+          // 任务的名称
+          "label": "任務 Git-命令",
+          // 任务类别，shell代表脚本
+          "type": "shell",
+          // 任务脚本，可以是yarn/npm/git 等
+          "command": "&&",
+          // 命令参数
+          "args": [
+            // "text": "for /f \"tokens=3 delims=\\\" %a in (\"${fileDirname}\") do start chrome --app=http://localhost/%a/pages/${fileBasename}\u000D"
+            // "for","/f","\"tokens=3","delims=\\\"", "%a", "in", "(\"${fileDirname}\")","do","start","chrome","--app=http://localhost/%a/pages/${fileBasename}"
+            // "${input:chh}","&&","任务完成"
+          "cmd.exe","/c" , "${input:branch-git}","&&","echo.","&&","echo.","&&","echo.","&&","exit","0"
+            // ,"&&","exit","0","&&","exit","/b",   // 变量，会在下面的inputs中搜寻名叫branch的id
+            // "echo",
+            // "${fileBasename}","0${env:AA}0" //無法取得AA
+          ],
+          "group": {
+            // "kind": "build",
+            "kind": "test",
+            "isDefault": true,
+          },
+          // 声明无需扫描脚本输出
+          // "problemMatcher": [],// 取消显示提示
+          // "isBackground": true // 设置为 true，任务完成后关闭终端
+      },
+      {
+        "label": "任務 Npm",
+        "type": "shell",
+        "command": "&&",
+        "args": ["npm","run", 
+      
+      
+              "${input:branch-npm}","&&","exit","/b"], 
+              "group": {"kind": "test","isDefault": true }
+
+
+      },
+      {
+        // 任务的名称
+        "label": "任務 pages .",
+        // 任务类别，shell代表脚本
+        "type": "shell",
+        // 任务脚本，可以是yarn/npm/git 等
+        "command": "&&",
+        // 命令参数
+        "args": [
+        
+        // HUB
+        // "start","chrome","--new-window","https://github.com/moon-start/${input:branch-chrome}","--user-data-dir=\"%userprofile%\\OneDrive\\桌面\\moon\""
+        //  
+        "start","chrome","--app=http://localhost/project-code/pages/${input:branch-pages}","--user-data-dir=\"%userprofile%\\OneDrive\\桌面\\moon\""
+      
+        
+        
+        
+        // "cmd.exe","/c" , "${input:branch-git}","&&","echo.","&&","echo.","&&","echo.","&&","exit","0"
+          
+        //!!結束!!
+        ,"&&","exit","0"
+        ],
+        "group": {"kind": "test","isDefault": true }
+      },
+      // GitHub
+      {   
+          "label": "任務 Git-GitHub .","type": "shell","command": "&&","args": [
+          "start","chrome","--new-window","${input:branch-GitHub}","--user-data-dir=\"%userprofile%\\OneDrive\\桌面\\moon\""
+          ,"&&","exit","0"//!!結束!!
+          ],"group": {"kind": "test","isDefault": true }
+      },
+      // 組織
+      {   
+              "label": "任務 Git-組織 .","type": "shell","command": "&&","args": [
+              "start","chrome","--new-window","${input:branch-Git-組織}","--user-data-dir=\"%userprofile%\\OneDrive\\桌面\\moon\""
+              ,"&&","exit","0"//!!結束!!
+              ],"group": {"kind": "test","isDefault": true }
+      },
+      // 組織
+      {   
+        "label": "任務 GL @ moon-0516 [ project-code ]","type": "shell","command": "&&","args": [
+        "start","chrome","--new-window","https://gitlab.com/moon-0516/project-code/","--user-data-dir=\"%userprofile%\\OneDrive\\桌面\\moon\""
+        ,"&&","exit","0"//!!結束!!
+        ],"group": {"kind": "test","isDefault": true }
+      },
+      // 組織
+      {   
+        "label": "任務 GH @ moon-0516 [ project-code ]","type": "shell","command": "&&","args": [
+        "start","chrome","--new-window","https://github.com/moon-0516/project-code/","--user-data-dir=\"%userprofile%\\OneDrive\\桌面\\moon\""
+        ,"&&","exit","0"//!!結束!!
+        ],"group": {"kind": "test","isDefault": true }
+      },
+      // PR
+      {   
+        "label": "任務 PR @ moon-0516 [ project-code ]","type": "shell","command": "&&","args": [
+        "start","chrome","--app=https://github.com/moon-0516/project-code/compare/main...moon-start:project-code:main","--user-data-dir=\"%userprofile%\\OneDrive\\桌面\\moon\""
+        // "moon-PR": "start chrome --app=https://github.com/Peg-L/project-code/compare/main...moon-start:project-code:main"
+        ,"&&","exit","0"//!!結束!!
+        ],"group": {"kind": "test","isDefault": true }
+      },
+
+
+    ],
+    // data['inputs'][2]['options'] = [ ....]
+    "inputs": [
+      //key:0 
+      {
+        "id": "branch-npm", // 输入参数的id，与上面变量${input:branch}这个branch保持一致
+        "type": "pickString",
+        "options": [
+            "moon/dev-80",
+            "moon/deploy",
+            "chrome/moon-0516",
+            "PR/Peg-L", 
+            "PR/moon-0516" 
+            
+        ],
+        "description": "npm run scripts"
+      },
+      //key:1 
+      {
+        "id": "branch-git", // 输入参数的id，与上面变量${input:branch}这个branch保持一致
+        "type": "pickString",
+        "options": [
+            "git remote -v",
+            "git-add-UP",
+            "git-add-UP &&  git push -f && fetch.bat",
+            "git merge Peg-L/main"
+        ],
+        "description": "请输入分支"
+      },
+      //key:2 
+      {
+        "id": "branch-pages", // 输入参数的id，与f上面变量${input:branch}这个branch保持一致
+        "type": "pickString",
+        "options": ["account.html", "cart.html", "cart2.html", "cart3.html", "components.html", "course.html", "course_intro.html", "faq.html", "index.html", "login.html", "register.html"],
+        "description": "選擇"
+      },
+      //key:3
+      {
+        "id": "branch-GitHub", // 输入参数的id，与上面变量${input:branch}这个branch保持一致
+        "type": "pickString",
+        "options": [
+            "https://github.com/moon-start/project-code/",
+            "https://github.com/Peg-L/project-code/",
+      
+        ],
+        "description": "選擇"
+      },
+      //key:4
+      {
+        "id": "branch-Git-組織", // 输入参数的id，与上面变量${input:branch}这个branch保持一致
+        "type": "pickString",
+        "options": [
+            "https://gitlab.com/moon-0516/",
+            "https://github.com/orgs/moon-0516/repositories/",
+        ],
+        "description": "你的組織 ~?"
+      },
+
+      
+
+      // start chrome  --new-window https://github.com/moon-start/%a  --user-data-dir=\"%userprofile%\\OneDrive\\桌面\\moon\"
+      // start chrome  --new-window https://github.com/Peg-L/%a  --user-data-dir=\"%userprofile%\\OneDrive\\桌面\\moon\"
+    ],
+}
+  //   //開啟 Git專案!!
+  //   "key": "alt+h alt+b",
+  //   "command": "workbench.action.terminal.sendSequence",
+  //   "args": {
+  //     // "text": "echo ${fileDirname}   ${fileBasename}\u000D"
+  //     "text": "for /f \"tokens=3 delims=\\\\\" %a in (\"%cd%\") do "
+  //   },
+  // },
+
+////// "kind": "test", "kind": "build",  除了這兩個
+////// 還有其他的嗎?? 或是可以自訂?
+
+// 在 VS Code 中，任务 (Tasks) 的 "group" 属性可以设置为以下预定义的值之一：
+
+// "build": 表示构建任务，通常用于编译和构建项目。
+// "test": 表示测试任务，通常用于运行测试套件。
+// "testAuto": 表示自动测试任务，在文件保存时运行测试。
+// "clean": 表示清理任务，通常用于清理构建生成的文件。
+// "rebuild": 表示重新构建任务，通常用于强制重新编译项目。
+
+
+// ----------------設定->視窗的
+// ${activeEditorShort}: 檔名 (如 myFile.txt)。
+// ${activeEditorMedium}: 相對於工作區資料夾的檔案路徑 (如 myFolder/myFileFolder/myFile.txt)。
+// ${activeEditorLong}: 檔案的完整路徑 (如 /Users/Development/myFolder/myFileFolder/myFile.txt)。
+// ${activeFolderShort}: 檔案所在資料夾的名稱 (如 myFileFolder)。
+// ${activeFolderMedium}: 檔案所在的資料夾路徑，相對於工作區資料夾 (如 myFolder/myFileFolder)。
+// ${activeFolderLong}: 檔案所在資料夾的完整路徑 (如 /Users/Development/myFolder/myFileFolder)。
+// ${folderName}: 檔案所在工作區資料夾的名稱 (如 myFolder)。
+// ${folderPath}: 檔案所在工作區資料夾的檔案路徑 (如 /Users/Development/myFolder)。
+// ${rootName}:如果適用 (例如 myFolder、myRemoteFolder [SSH] 或 myWorkspace (Workspace))，則為具有選擇性遠端名稱與工作區指示器的工作區名稱。
+// ${rootNameShort}: 沒有尾碼之工作區名稱 (例如 myFolder、myRemoteFolder 或 myWorkspace) 的縮短名稱
+// ${rootPath}: 開啟的工作區或資料夾檔案路徑 (如 /Users/Development/myWorkspace)。
+// ${profileName}: 開啟工作區所在的設定檔名稱 (例如資料科學(設定檔))。如果使用預設設定檔則忽略。
+// ${appName}: 如 VS Code。
+// ${remoteName}: 例如 SSH
+// ${dirty}: 當使用中編輯器具有未儲存變更的指示器。
+// ${separator}: 條件式分隔符號 (" - ")，只有位於具有值或靜態文字的變數之間時才會出現。
+
+
+
+{
+  //開啟 Git專案!!
+  "key": "alt+g alt+l",
+  "command": "workbench.action.terminal.sendSequence",
+  "args": {
+    // "text": "echo ${fileDirname}   ${fileBasename}\u000D"
+    "text": "for /f \"tokens=3 delims=\\\\\" %a in (\"%cd%\") do start chrome  --new-window https://gitlab.com/moon-0516/%a  --user-data-dir=\"%userprofile%\\OneDrive\\桌面\\moon\" \u000D"
+  },
+},
+
+
+

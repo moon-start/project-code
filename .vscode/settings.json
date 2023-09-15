@@ -1,0 +1,132 @@
+{
+    // 這個很重要:指定git來源
+    "git.path": "C:\\Users\\moon-\\AppData\\Local\\Microsoft\\WindowsApps\\GGG\\bin\\git.exe",
+
+    //"git.ignoreMissingGitWarning": true,
+    // // "terminal.integrated.defaultProfile.windows": "Command Prompt",
+  "terminal.integrated.defaultProfile.windows": "笨貓貓電視台",
+  "terminal.integrated.profiles.windows": {
+    
+        "笨貓貓電視台": {
+            // "path": "${env:windir}\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+            // "args": [
+            //     "-NoExit", // 这个参数可以让 PowerShell 窗口保持打开
+            //     "-Command", 
+            //     "Start-Process -FilePath cmd.exe -ArgumentList '/c echo 123 & pause'",
+            // ]
+                
+            "path": "${env:windir}\\System32\\cmd.exe",
+     
+            "args": ["/k","echo 歡迎來到笨貓貓 電視台!520!",
+            // "args": [ "/k","%shell%"  
+            // "args": ["/k","%shell%" ,
+            // "echo","%shell%","%ML%"
+
+            // "set","ML=del","E:\\HOME\\project-code\\.vscode\\keybindings.json",">nul","&","mklink E:\\HOME\\project-code\\.vscode\\keybindings.json","C:\\Users\\moon-\\AppData\\Local\\Microsoft\\WindowsApps\\VSData\\settings\\User\\keybindings.json" ,
+
+            // "\n",
+            // "&&",
+            // // "${env:windir}\\System32\\cmd.exe",
+            // "cmd.exe","/k","pause",
+            // "&&", "${env:windir}\\System32\\cmd.exe","/k"
+
+
+
+            // "echo %ML%"
+
+            // "args": ["/k", "echo 歡迎來到笨貓貓 電視台!336!" ],
+            // "&&","copy",
+            // // "echo","${fileDirname}--\\${fileBasename}",
+            // "${fileDirname}\\keybindings.json",
+            // "%LOCALAPPDATA%\\Microsoft\\WindowsApps\\VSData\\settings\\User\\keybindings.json",
+
+            // "mklink", "${fileDirname}\\keybindings.json" ,"${fileDirname}\\keybindings.json"
+            // ">nul", 
+            // "&&","git","config","pull.ff","only",
+            // "&&","git","config","pull.rebase","true",
+            // "&&","echo.","&&","${env:windir}\\System32\\cmd.exe","/c"
+
+            // "${env:windir}\\System32\\cmd.exe","/c"
+        ],
+
+
+// C:\Windows\System32>powershell -Command "Start-Process -FilePath cmd.exe -ArgumentList '/c echo.123' -Verb RunAs;"
+// C:\Windows\System32>powershell -Command "Start-Process -FilePath cmd.exe -ArgumentList '/k echo.123' -Verb RunAs;"
+
+            // powershell.exe -encodedCommand $encodedCommand
+            // powershell -Command "Start-Process -FilePath cmd.exe -ArgumentList '/c %ML%' -Verb RunAs;"
+            // "path": "${env:windir}\\System32\\cmd.exe",
+            // "args": ["E:\\HOME\\cmd.lnk /k echo.123" ],
+            // "args": ["/k", "E:\\HOME\\cmd.lnk /k echo.123" ],
+             "env": {
+                // powershell.exe -NoExit -Command echo 123
+            // "set","ML=del","E:\\HOME\\project-code\\.vscode\\keybindings.json",">nul","&","mklink E:\\HOME\\project-code\\.vscode\\keybindings.json","C:\\Users\\moon-\\AppData\\Local\\Microsoft\\WindowsApps\\VSData\\settings\\User\\keybindings.json" ,
+                "shell":"powershell -Command \"Start-Process -Verb RunAs -FilePath cmd.exe -ArgumentList '/c %MDD% && %ML% & %ML2%';\"",
+                // "shell":"powershell -Command \"Start-Process -Verb RunAs -FilePath cmd.exe -ArgumentList '/c %MDD%';\"",
+
+
+                // "shell":"powershell -Command \"Start-Process -Verb RunAs -FilePath cmd.exe -ArgumentList '/c $env:ML;$env:ML2';\"",
+                // "shell":"powershell -Command \"Start-Process -Verb RunAs -FilePath cmd.exe -ArgumentList '/c ${env:ML};${env:ML2}';\"",
+                "B":"powershell.exe -NoExit -Command echo 123",
+                // "ML":"${fileDirname}\\${fileBasename}",
+                
+
+                "VS":"C:\\Users\\moon-\\AppData\\Local\\Microsoft\\WindowsApps\\VSData",
+
+
+                // 刪掉連結::等於砍自己 來源檔案
+                "MDD":"del /q ${env:VS}\\settings\\User\\*.*",
+                // [[[[他不會覆蓋..所以del...所以MDD]]]]]]]
+                "ML":"mklink ${env:VS}\\settings\\User\\keybindings.json         ${fileDirname}\\keybindings.json ",
+                // 這個很重要:指定git來源---ML2-copy
+                //"git.path": "C:\\Users\\moon-\\AppData\\Local\\Microsoft\\WindowsApps\\GGG\\bin\\git.exe",
+                "ML2":"mklink ${env:VS}\\settings\\User\\settings.json           ${fileDirname}\\settings.json ",
+                    
+    
+
+                // // 他不會覆蓋..所以del
+                // "ML":"del C:\\Users\\moon-\\AppData\\Local\\Microsoft\\WindowsApps\\VSData\\settings\\User\\keybindings.json >nul & mklink C:\\Users\\moon-\\AppData\\Local\\Microsoft\\WindowsApps\\VSData\\settings\\User\\keybindings.json  ${fileDirname}\\keybindings.json ",
+                // // "ML":"mklink C:\\Users\\moon-\\AppData\\Local\\Microsoft\\WindowsApps\\VSData\\settings\\User\\keybindings.json ${fileDirname}\\keybindings.json ",
+
+                // // 這個很重要:指定git來源---ML2-copy
+                // //"git.path": "C:\\Users\\moon-\\AppData\\Local\\Microsoft\\WindowsApps\\GGG\\bin\\git.exe",
+                // "ML2":"del C:\\Users\\moon-\\AppData\\Local\\Microsoft\\WindowsApps\\VSData\\settings\\User\\settings.json >nul & mklink C:\\Users\\moon-\\AppData\\Local\\Microsoft\\WindowsApps\\VSData\\settings\\User\\settings.json       ${fileDirname}\\settings.json ",
+                
+
+
+                // 初始版
+                // "ML":"mklink C:\\Users\\moon-\\AppData\\Local\\Microsoft\\WindowsApps\\VSData\\settings\\User\\keybindings.json  ${fileDirname}\\keybindings.json ",
+                // "ML2":"mklink C:\\Users\\moon-\\AppData\\Local\\Microsoft\\WindowsApps\\VSData\\settings\\User\\settings.json       ${fileDirname}\\settings.json ",
+                
+             
+
+
+
+                // "ML":"del ${fileDirname}\\keybindings.json >nul & mklink ${fileDirname}\\keybindings.json C:\\Users\\moon-\\AppData\\Local\\Microsoft\\WindowsApps\\VSData\\settings\\User\\keybindings.json",
+                "PATH": "E:\\HOME\\node.py\\node;${env:path};E:\\HOME\\BAT.bat"
+            }
+         }
+    },
+    "git-graph.customEmojiShortcodeMappings": [],
+    // "keybindings": "${workspaceFolder}/my-keybindings.json" 
+
+    "git.defaultCloneDirectory": "",
+
+
+    
+
+    // ;E:\\HOME\\node.py\\node
+
+    // // "python.pythonPath": "C:\\Users\\笨貓貓\\Documents\\HTML5\\Scripts",
+    // // "terminal.integrated.shell.windows": "C:\\WINDOWS\\System32\\cmd.exe",
+    // // https://blog.darkthread.net/blog/cmder-in-vscode/
+    
+}
+
+
+// C:\Users\moon-\AppData\Local\Microsoft\WindowsApps\VSData\settings\User
+ //     "mklink", "${fileDirname}\\keybindings.json" ,"${fileDirname}\\keybindings.json"
+// powershell -Command "Start-Process -Verb RunAs -FilePath cmd.exe -ArgumentList '/c %ML%';"
+
+
+// del E:\HOME\project-code\.vscode\keybindings.json

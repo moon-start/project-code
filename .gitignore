@@ -13,7 +13,7 @@ dist-ssr
 *.local
 
 # Editor directories and files
-.vscode/*
+# .vscode/*
 !.vscode/extensions.json
 .idea
 .DS_Store
@@ -22,3 +22,14 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# 排除整个 .vscode 文件夹
+.vscode/*
+
+# 但接受 .vscode/tasks.json 文件
+!.vscode/tasks.json
+!.vscode/笨貓任務.bat
+!.vscode/settings.json
+# !.vscode/keybindings.json
+!.vscode/fetch.bat
